@@ -46,12 +46,9 @@ class DataBase(object):
         self.DictData[Name] = []
         return True
 
-    def AddData(self, IndexName, Data):
-        if IndexName not in self.DictData:
-            print("Error: Index Not Exist")
-            return False
-
-        self.DictData[IndexName].append(Data)
+    def AddData(self, Data):
+        for i in self.DictData:
+            self.DictData[i].append(Data)
         return True
 
     def DelIndex(self, Index):
@@ -65,26 +62,23 @@ class DataBase(object):
         del self.DictData[Index]
         return True
 
-    def DelData(self, Index, ID):
-        if Index not in self.DictData:
-            print("Error: Index Not Exist")
-            return False
-
+    def DelData(self, ID):
         try:
-            del self.DictData[Index][ID]
+            for i in self.DictData:
+                del self.DictData[i][ID]
         except IndexError:
             print("Error: The Data Corresponding To The ID Does Not Exist")
             return False
 
         return True
 
-    def view(self, Index=None):
-        if not Index:
+    def view(self, ID=None):
+        if not ID:
             IndexList = []
             for i in self.DictData:
                 IndexList.append(i)
             return IndexList
-        return self.DictData[Index]
+        return self.DictData[ID]
 
     def save(self):
         try:
