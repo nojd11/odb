@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2021 nojd11
+Copyright (c) 2021 RebAltair
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
